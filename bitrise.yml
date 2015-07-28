@@ -1,0 +1,39 @@
+format_version: 0.9.5
+default_step_lib_source: https://bitbucket.org/bitrise-team/bitrise-new-steps-spec
+app:
+  envs:
+  - BITRISE_PROJECT_TITLE: "Bitrise.yml Test Project"
+    opts:
+      is_expand: true
+  - BITRISE_DEV_BRANCH: ""
+    opts:
+      is_expand: true
+workflows:
+  simple-ok-test:
+    title: ""
+    summary: ""
+    before_run: []
+    after_run: []
+    envs: []
+    steps:
+    - script:
+        title: Hello Bitrise!
+        inputs:
+        - content: |-
+            #!/bin/bash
+            echo "Welcome to Bitrise, ${BITRISE_PROJECT_TITLE}"
+  simple-error-test:
+    title: ""
+    summary: ""
+    before_run: []
+    after_run: []
+    envs: []
+    steps:
+    - script:
+        title: Hello Bitrise!
+        inputs:
+        - content: |-
+            #!/bin/bash
+            set -v
+            # This step will fail
+            exit 1
